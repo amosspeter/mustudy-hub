@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUSTudy Hub - Authentication</title>
+    
+    <!-- Google Fonts import for Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    
+    <div class="auth-container">
+        <div class="auth-header">
+            <img src="../static/images/download.jpg" alt="MUSTudy Hub Logo" class="brand-logo">
+            <h2>MUSTudy Hub</h2>
+            <p class="app-description">Organize and manage your academic study links effortlessly.</p>
+            <p id="form-subtitle">Sign in to your account</p>
+        </div>
+
+        <!-- LOGIN FORM -->
+        <form id="login-form">
+            <div class="form-group">
+                <label for="login-identifier">Username or Email</label>
+                <input type="text" id="login-identifier" name="identifier" placeholder="Enter username or email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="login-password">Password</label>
+                <div class="password-wrapper">
+                    <input type="password" id="login-password" name="password" placeholder="Enter password" required>
+                    <span class="toggle-password" onclick="togglePasswordVisibility('login-password')">
+                        <svg viewBox="0 0 24 24" class="eye-icon">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                    </span>
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-btn">Sign In</button>
+            <div class="form-toggle">
+                Don't have an account? <span onclick="toggleForms('register')">Register here</span>
+            </div>
+        </form>
+
+        <!-- REGISTER FORM -->
+        <form id="register-form">
+            <div class="form-group">
+                <label for="reg-fullname">Full Name</label>
+                <input type="text" id="reg-fullname" name="fullname" placeholder="Amos John" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="reg-email">Email Address</label>
+                <input type="email" id="reg-email" name="email" placeholder="example@email.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="reg-username">Username</label>
+                <input type="text" id="reg-username" name="username" placeholder="amosjohn123" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="reg-password">Password</label>
+                <div class="password-wrapper">
+                    <input type="password" id="reg-password" name="password" placeholder="Create password" required>
+                    <span class="toggle-password" onclick="togglePasswordVisibility('reg-password')">
+                        <svg viewBox="0 0 24 24" class="eye-icon">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                    </span>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="reg-confirm-password">Confirm Password</label>
+                <div class="password-wrapper">
+                    <input type="password" id="reg-confirm-password" name="confirm_password" placeholder="Confirm password" required>
+                    <span class="toggle-password" onclick="togglePasswordVisibility('reg-confirm-password')">
+                        <svg viewBox="0 0 24 24" class="eye-icon">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                    </span>
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-btn">Create Account</button>
+            <div class="form-toggle">
+                Already have an account? <span onclick="toggleForms('login')">Sign in</span>
+            </div>
+        </form>
+    </div>
+
+    <script src="../static/script.js"></script>
+</body>
+</html>
