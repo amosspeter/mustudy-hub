@@ -14,7 +14,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mustudy.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(hours=1) # 1-hour session lifetime
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(hours=1)
 
 # Initialize Extensions
 db.init_app(app)
@@ -24,11 +24,11 @@ serializer = URLSafeTimedSerializer(app.config['SECRET_KEY'])
 with app.app_context():
     db.create_all()
 
-    # ----------------- HELPER FUNCTIONS -----------------
+    # Helper Functions
     def is_logged_in():
         return 'user_id' in session
 
-        # ----------------- FRONTEND ROUTES -----------------
+        # Frontend Routes
         @app.route('/')
         def home():
             if is_logged_in():
@@ -43,7 +43,7 @@ with app.app_context():
                                                 current_user = User.query.get(session['user_id'])
                                                     return render_template('dashboard.html', current_user=current_user)
 
-                                                    # ----------------- AUTHENTICATION API -----------------
+                                                    # Authentication API
                                                     @app.route('/api/register', methods=['POST'])
                                                     def register():
                                                         data = request.json
@@ -84,7 +84,7 @@ with app.app_context():
                                                                                                                                                                                                   session.pop('user_id', None)
                                                                                                                                                                                                       return jsonify({'status': 'success', 'message': 'Logged out successfully.'}), 200
 
-                                                                                                                                                                                                      # ----------------- DASHBOARD API (CRUD) -----------------
+                                                                                                                                                                                                      # Dashboard API (CRUD)
                                                                                                                                                                                                       @app.route('/api/subjects', methods=['GET'])
                                                                                                                                                                                                       def get_subjects():
                                                                                                                                                                                                           if not is_logged_in():
