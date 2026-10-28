@@ -31,9 +31,9 @@ with app.app_context():
         # Frontend Routes
         @app.route('/')
         def home():
-            if is_logged_in():
-                    return redirect(url_for('dashboard'))
-                        return render_template('index.html')
+                if is_logged_in():
+                            return redirect(url_for('dashboard'))
+                                return render_template('index.html')
 
                         @app.route('/dashboard')
                         def dashboard():
