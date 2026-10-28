@@ -34,7 +34,7 @@ with app.app_context():
             if is_logged_in():
                 return redirect(url_for('dashboard'))
                         
-        return render_template('index.html')
+            return render_template('index.html')
 
 
                         @app.route('/dashboard')
